@@ -4,18 +4,28 @@
       @content;
     }
   }
-@mixin tablet {
-    @media only screen and (max-width: 600px) {
-      @content;
-    }
+@mixin break600 {
+    @media only screen and (max-width:600px) {
+        @content;
+      }
 }
 @mixin break1250 {
     @media only screen and (max-width:1250px) {
         @content;
       }
 }
-@mixin break600 {
-    @media only screen and (max-width:600px) {
+@mixin break1600min {
+    @media only screen and (min-width:1601px) {
+        @content;
+      }
+}
+@mixin break1600max {
+    @media only screen and (max-width:1601px) {
+        @content;
+      }
+}
+@mixin break2000 {
+    @media only screen and (min-width:1900px) {
         @content;
       }
 }
@@ -51,7 +61,7 @@ body{
 }
 
 .Landing {
-    width: 100vw;
+    width: 100em;
     padding: 0 0 112px 0;
     @include mobile {
         padding: 0;
@@ -59,32 +69,34 @@ body{
 }
 
 ///Background & Phone///
-
 #blueBackground{
     display:flex;
-    flex-direction: row; 
-    width: 100vw;
+    flex-direction: row;
+    width: 100em;
     height: 759px;
     background-image: $blueBackground;
     background-size: cover;
+
+    @include break1600min{
+        width:125em;
+    }
+    @include break2000{
+        width:150em;
+    }
     @include break1250{
-        width:150vw;
+        width:100em;
     }
     @include break600{
-        width:250vw;
-    }
-        
+        width:100em;
+    }   
     @include mobile {
         flex-direction: column;
         width: 325px;
         height: 578px;
         background-image: $blueBackground2;
         background-size:cover;
-        
-    }
-    
+    }  
 }
-
 #phone{
     display: flex;
     width: 374px;
@@ -92,13 +104,11 @@ body{
     margin: 74px 167px 0 274px;
     @include mobile {
         width: 221px;
-        height: 184px;
+        height: 185px;
         margin: 95px 0px 291px 28px;
     }
 }
-
 ///TEXT///
-
 #text{
     display: flex;
     flex-direction: column;
@@ -109,7 +119,6 @@ body{
         margin:0px;
     }
 }
-
 #text h2{
     font-family: 'SegoeUIlight';
     width: 645px;
@@ -127,7 +136,6 @@ body{
         text-align: center;
     }
 }
-
 #text p{
     font-family: 'SegoeUIregular';
     width: 645px;
@@ -145,7 +153,6 @@ body{
         text-align: center;
     }
 }
-
 #text img{
     width: 132px;
     height: 42px;
@@ -154,11 +161,8 @@ body{
         height: 42px;
         margin: -542px 94px 208px 94px;
     }
-
 }
-
 ///FORM Email///
-
 .email-form{
     display: flex;
     flex-direction: row;
@@ -185,7 +189,6 @@ input#email{
         font-size: 16px;
     }
 }
-
 #send{
     width: 122px;
     height: 57px;
@@ -207,27 +210,33 @@ input#email{
 
     }
 }
-
 ///Social Logos///
 
 #social{
-    position:absolute;
     @include mobile{
         display:none ;
     }
-    @include break1250{
+    @include break600{
         display:none;
     }
 }
 #mail{
+    position:absolute;
+    left: 93%;
+    top:4%;
     width: 35px;
     height:35px;
-    margin: 0 10px;
-    margin-left: 93vw;
-    margin-top: 40px;
-   
+    @include break1600max{
+        left: 93em;
+    }
 }
 #twitter{
+    position:absolute;
+    left: 96%;
+    top:4%;
     width: 35px;
     height:35px;
+    @include break1600max{
+        left: 96em;
+    }
 }
