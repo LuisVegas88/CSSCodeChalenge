@@ -1,0 +1,233 @@
+///BreakPoints///
+@mixin mobile {
+    @media only screen and (max-width: 400px) {
+      @content;
+    }
+  }
+@mixin tablet {
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+}
+@mixin break1250 {
+    @media only screen and (max-width:1250px) {
+        @content;
+      }
+}
+@mixin break600 {
+    @media only screen and (max-width:600px) {
+        @content;
+      }
+}
+
+///Colors & Background///
+
+$white: #ffffff;
+$grey: #9fa3a7;
+$tomato: #f05638;
+$blueBackground : url(./Public/blueblackground.png);
+$blueBackground2 : url(./Public/blueblackground2.png);
+
+
+///Fonts///
+
+@font-face {
+    font-family: 'SegoeUIlight';
+      src: url('./Public/Segoe/Light.woff') format('woff');
+}
+@font-face {
+    font-family: 'SegoeUIregular';
+      src: url('./Public/Segoe/Regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'SegoeUIbold';
+      src: url('./Public/Segoe/Bold.woff') format('woff');
+}
+
+///General///
+
+body{
+    margin:0;
+}
+
+.Landing {
+    width: 100vw;
+    padding: 0 0 112px 0;
+    @include mobile {
+        padding: 0;
+}
+}
+
+///Background & Phone///
+
+#blueBackground{
+    display:flex;
+    flex-direction: row; 
+    width: 100vw;
+    height: 759px;
+    background-image: $blueBackground;
+    background-size: cover;
+    @include break1250{
+        width:150vw;
+    }
+    @include break600{
+        width:250vw;
+    }
+        
+    @include mobile {
+        flex-direction: column;
+        width: 325px;
+        height: 578px;
+        background-image: $blueBackground2;
+        background-size:cover;
+        
+    }
+    
+}
+
+#phone{
+    display: flex;
+    width: 374px;
+    height: 732px;
+    margin: 74px 167px 0 274px;
+    @include mobile {
+        width: 221px;
+        height: 184px;
+        margin: 95px 0px 291px 28px;
+    }
+}
+
+///TEXT///
+
+#text{
+    display: flex;
+    flex-direction: column;
+    margin: 164px 0 0 0;
+    color: $white;
+    @include mobile {
+        align-items: center;
+        margin:0px;
+    }
+}
+
+#text h2{
+    font-family: 'SegoeUIlight';
+    width: 645px;
+    height: 116px;
+    margin: 29px 26px 30px 0;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.21;
+    @include mobile {
+        width: 280px;
+        height: 84px;
+        margin: 23px 0px 4px 0;
+        font-size: 24px;
+        line-height: 1.17;
+        text-align: center;
+    }
+}
+
+#text p{
+    font-family: 'SegoeUIregular';
+    width: 645px;
+    height: 68px;
+    margin:  0px 26px 48px 0;
+    opacity: 0.7;
+    font-size: 24px;
+    line-height: 1.42;
+    @include mobile {
+        width: 280px;
+        height: 48px;
+        margin: 9px 0px 26px 0;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+    }
+}
+
+#text img{
+    width: 132px;
+    height: 42px;
+    @include mobile {
+        width: 132px;
+        height: 42px;
+        margin: -542px 94px 208px 94px;
+    }
+
+}
+
+///FORM Email///
+
+.email-form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#email{
+    width: 275px;
+    height: 55px;
+    border-radius: 8px 0 0 8px;
+    border: none;
+    background-color: $white;
+    @include mobile{
+        width: 168px;
+        height:45px;
+    }
+}
+input#email{
+    font-family: 'SegoeUIregular';
+    font-size: 20px;
+    color: $grey;
+    line-height: 1.2;
+    padding-left: 20px;
+    @include mobile{
+        font-size: 16px;
+    }
+}
+
+#send{
+    width: 122px;
+    height: 57px;
+    padding: 18px 18px;
+    border-radius: 0 8px 8px 0;
+    border: none;
+    background-color: $tomato;
+    //text//
+    font-family: 'SegoeUIbold';
+    font-size: 14px;
+    letter-spacing: 2.8px;
+    text-align: center;
+    color: $white;
+
+    @include mobile{
+        width: 92px;
+        height:47px;
+        padding: 0px;
+
+    }
+}
+
+///Social Logos///
+
+#social{
+    position:absolute;
+    @include mobile{
+        display:none ;
+    }
+    @include break1250{
+        display:none;
+    }
+}
+#mail{
+    width: 35px;
+    height:35px;
+    margin: 0 10px;
+    margin-left: 93vw;
+    margin-top: 40px;
+   
+}
+#twitter{
+    width: 35px;
+    height:35px;
+}
