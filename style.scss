@@ -1,4 +1,5 @@
 ///BreakPoints///
+
 @mixin mobile {
     @media only screen and (max-width: 400px) {
       @content;
@@ -6,6 +7,16 @@
   }
 @mixin break600 {
     @media only screen and (max-width:600px) {
+        @content;
+      }
+}
+@mixin break800 {
+    @media only screen and (max-width:800px) {
+        @content;
+      }
+}
+@mixin break1000 {
+    @media only screen and (max-width:1000px) {
         @content;
       }
 }
@@ -69,6 +80,7 @@ body{
 }
 
 ///Background & Phone///
+
 #blueBackground{
     display:flex;
     flex-direction: row;
@@ -97,27 +109,49 @@ body{
         background-size:cover;
     }  
 }
+
 #phone{
     display: flex;
     width: 374px;
     height: 732px;
     margin: 74px 167px 0 274px;
+    @include break1000{
+        height:680px;
+        margin: 200px 25px 0 50px;
+    }
+    @include break800{
+        height:650px;
+        margin: 200px 0px 0 50px;
+    }
     @include mobile {
         width: 221px;
         height: 185px;
         margin: 95px 0px 291px 28px;
     }
 }
+
 ///TEXT///
+
 #text{
     display: flex;
     flex-direction: column;
     margin: 164px 0 0 0;
     color: $white;
+    @include break1000{
+        margin: 270px 0 0 0;
+    }
+    @include break800{
+        margin: 270px 0 0 0;
+    }
     @include mobile {
         align-items: center;
         margin:0px;
     }
+}
+#textContainer{
+    display: flex;
+    flex-direction: column;
+    
 }
 #text h2{
     font-family: 'SegoeUIlight';
@@ -127,6 +161,20 @@ body{
     font-size: 48px;
     font-weight: 300;
     line-height: 1.21;
+
+    @include break1000{
+        width: 450px;
+        margin: 23px 0px 4px 0;
+        font-size:33px;
+        line-height: 1.17;
+    }
+    @include break800{
+        width: 300px;
+        height: 90px;
+        margin: 23px 0px 4px 0;
+        font-size:28px;
+        line-height: 1.17;
+    }
     @include mobile {
         width: 280px;
         height: 84px;
@@ -139,11 +187,24 @@ body{
 #text p{
     font-family: 'SegoeUIregular';
     width: 645px;
-    height: 68px;
     margin:  0px 26px 48px 0;
     opacity: 0.7;
     font-size: 24px;
     line-height: 1.42;
+    @include break1000{
+        width: 350px;
+        height: 48px;
+        margin: 9px 0px 40px 0;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+    @include break800{
+        width: 280px;
+        height: 48px;
+        margin: 9px 0px 40px 0;
+        font-size: 17px;
+        line-height: 1.5;
+    }
     @include mobile {
         width: 280px;
         height: 48px;
@@ -162,7 +223,9 @@ body{
         margin: -542px 94px 208px 94px;
     }
 }
+
 ///FORM Email///
+
 .email-form{
     display: flex;
     flex-direction: row;
@@ -174,6 +237,10 @@ body{
     border-radius: 8px 0 0 8px;
     border: none;
     background-color: $white;
+    @include break800{
+        width: 168px;
+        height:45px;
+    }
     @include mobile{
         width: 168px;
         height:45px;
@@ -185,6 +252,9 @@ input#email{
     color: $grey;
     line-height: 1.2;
     padding-left: 20px;
+    @include break800{
+        font-size: 16px;
+    }
     @include mobile{
         font-size: 16px;
     }
@@ -203,6 +273,12 @@ input#email{
     text-align: center;
     color: $white;
 
+    @include break800{
+        width: 92px;
+        height:47px;
+        padding: 0px;
+
+    }
     @include mobile{
         width: 92px;
         height:47px;
@@ -210,6 +286,7 @@ input#email{
 
     }
 }
+
 ///Social Logos///
 
 #social{
